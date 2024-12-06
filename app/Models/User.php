@@ -33,6 +33,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function profile()
+
+    {
+        return $this->hasone(profile::class);   
+    }
+
     /**
      * Get the attributes that should be cast.
      *
