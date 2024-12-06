@@ -39,6 +39,12 @@ class User extends Authenticatable
         return $this->hasone(profile::class);   
     }
 
+   
+    public function experience()
+
+    {
+        return $this->hasone(experience::class);
+    }
     /**
      * Get the attributes that should be cast.
      *
