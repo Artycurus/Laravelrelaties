@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        relation::morphMap([
+            'series' => 'app\series',
+            'collection' => 'app\collection'
+        ])
     }
 }
