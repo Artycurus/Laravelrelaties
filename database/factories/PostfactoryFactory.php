@@ -21,7 +21,7 @@ class PostfactoryFactory extends Factory
                 return factory(App\User::class)->create()->id;
             },
             'title' => $faker->sentence,
-            'body'  => $faker->sentence
+            'body'  => $faker->paragraph
         ];
     }
 }

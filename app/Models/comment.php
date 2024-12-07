@@ -6,9 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class comment extends Model
 {
-    public function post()
+    public function like($user = null)
     {
-        return $this->belongsto(post::class);
-    }
-}
+        $user = $user ?: auth()->user();
 
+        return $this->likes()->attach($user);
+     
+    }   
+    
+
+    public function likes()
+    {
+        
+        return $this->morphTomany(user::class, 'likable')->withTimestamps();
+
+    }   
+       
+       
+}

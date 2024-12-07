@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->incremenets('id');
-            $table->unsignedinteger('user_id');
-            $table->string('title');
-            $table->text('body');
-            $table->timestamps();
+        Schema::create('likeables', function (Blueprint $table) {
+            $table->primary(['post_id', 'likeable_id', 'likeable_type']);
+            $table->unsignedinterger('post_id');
+            $table->unsignedinterger('likeable_id');
+            $table->string('likeable_type');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('post_user');
     }
 };
